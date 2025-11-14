@@ -1,0 +1,28 @@
+name: 🚀 Deploy to InfinityFree via FTP
+
+on:
+  push:
+    branches:
+      - main # tự động deploy khi bạn push code lên nhánh main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}/
+          local-dir: ./ # upload toàn bộ code trong repo
+          exclude: |
+            **/.git*
+            **/.github*
+            **/README.md
+            **/.env
+            **/.env.production
