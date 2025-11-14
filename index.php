@@ -28,7 +28,7 @@ switch ($layout) {
         .grid {
             display: grid;
             grid-template-columns: repeat(<?= $cols ?>, 1fr);
-            gap: 15px;
+            /* gap: 15px; */
         }
 
         /* Bọc iframe để tránh kéo trái phải */
@@ -49,13 +49,13 @@ switch ($layout) {
             overflow: hidden; */
         }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1081px) {
         iframe {
             height: 80vh; 
         }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1080px) {
         iframe {
             height: 40vh; 
         }
