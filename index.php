@@ -44,11 +44,22 @@ switch ($layout) {
         /* Iframe full width không tạo thanh kéo ngang */
         iframe {
             width: 100%;
-            height: 500px;
-            border: 0;
+            /* border: 0;
             display: block;
-            overflow: hidden;
+            overflow: hidden; */
         }
+
+    @media (min-width: 768px) {
+        iframe {
+            height: 80vh; 
+        }
+    }
+
+    @media (max-width: 767px) {
+        iframe {
+            height: 40vh; 
+        }
+    }
     </style>
 </head>
 <body>
@@ -76,7 +87,7 @@ switch ($layout) {
     </div>
 </nav>
 
-<div class="container mb-5">
+<div class="container">
     <div class="grid">
         <?php foreach ($links as $i => $url): ?>
             <div class="frame-wrapper">
