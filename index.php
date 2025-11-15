@@ -40,7 +40,6 @@
             <div class="frame-wrapper">
                 <div class="frame-box">
                     <iframe id="f<?= $i ?>" src="<?= htmlspecialchars($url) ?>"></iframe>
-                    <div class="resize-handle" title="Drag to resize" aria-hidden="true"></div>
                 </div>
 
                 <div class="mt-2 text-center">
