@@ -10,6 +10,9 @@
             /* gap: 15px; */
         }
 
+        .frame{
+            margin: 0 5vh;
+        }
         /* Bọc iframe để tránh kéo trái phải */
         .frame-wrapper {
             width: 100%;
@@ -25,7 +28,7 @@
         .frame-box {
             resize: vertical;
             overflow: auto;
-            min-height: 100vh;
+            min-height: 80vh;
             border: 1px solid #333;
             border-radius: 4px;
             background: #fff;

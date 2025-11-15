@@ -29,12 +29,12 @@
             </div>
 
             <!-- Nút thêm link -->
-            <a class="btn btn-success" href="add.php">➕ Add Link</a>
+            <a class="btn btn-success" href="add.php">Add Link</a>
         </div>
     </div>
 </nav>
 
-<div class="container">
+<div class="frame">
     <div class="grid">
         <?php foreach ($links as $i => $url): ?>
             <div class="frame-wrapper">

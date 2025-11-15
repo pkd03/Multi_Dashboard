@@ -2,7 +2,7 @@
 $links = json_decode(file_get_contents("links.json"), true);
 
 // layout
-$layout = $_GET['layout'] ?? 'default';
+$layout = $_GET['layout'] ?? '2x2';
 
 switch ($layout) {
     case '2x2':  $cols = 2; break;
