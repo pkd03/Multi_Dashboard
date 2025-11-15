@@ -1,16 +1,4 @@
-<?php
-$links = json_decode(file_get_contents("links.json"), true);
-
-// layout
-$layout = $_GET['layout'] ?? 'default';
-
-switch ($layout) {
-    case '2x2':  $cols = 2; break;
-    case '3x3': $cols = 3; break;
-    default:     $cols = 1; break;
-}
-
-?>
+<?php include 'settings.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,48 +7,7 @@ switch ($layout) {
 
     <!-- BOOTSTRAP 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background: #f5f5f5;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(<?= $cols ?>, 1fr);
-            /* gap: 15px; */
-        }
-
-        /* Bọc iframe để tránh kéo trái phải */
-        .frame-wrapper {
-            width: 100%;
-            overflow: hidden;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,.1);
-            padding: 5px;
-        }
-
-        /* Iframe full width không tạo thanh kéo ngang */
-        iframe {
-            width: 100%;
-            /* border: 0;
-            display: block;
-            overflow: hidden; */
-        }
-
-    @media (min-width: 1081px) {
-        iframe {
-            height: 80vh; 
-        }
-    }
-
-    @media (max-width: 1080px) {
-        iframe {
-            height: 40vh; 
-        }
-    }
-    </style>
+    <?php include 'style.php'; ?>
 </head>
 <body>
 
@@ -91,9 +38,12 @@ switch ($layout) {
     <div class="grid">
         <?php foreach ($links as $i => $url): ?>
             <div class="frame-wrapper">
-                <iframe id="f<?= $i ?>" src="<?= htmlspecialchars($url) ?>"></iframe>
+                <div class="frame-box">
+                    <iframe id="f<?= $i ?>" src="<?= htmlspecialchars($url) ?>"></iframe>
+                    <div class="resize-handle" title="Drag to resize" aria-hidden="true"></div>
+                </div>
 
-                <div class="mt-2 text-end">
+                <div class="mt-2 text-center">
                     <a href="delete.php?id=<?= $i ?>" class="btn btn-sm btn-danger"
                        onclick="return confirm('Delete this link?');">
                         Delete
@@ -107,5 +57,6 @@ switch ($layout) {
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
