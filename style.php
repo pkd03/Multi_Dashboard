@@ -25,8 +25,7 @@
         .frame-box {
             resize: vertical;
             overflow: auto;
-            min-height: 120px;
-            height: 320px; /* default height, will be overridden by saved value */
+            min-height: 100vh;
             border: 1px solid #333;
             border-radius: 4px;
             background: #fff;
